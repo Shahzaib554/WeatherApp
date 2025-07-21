@@ -26,6 +26,7 @@ function App() {
         placeholder="Enter City"
         placeholderTextColor="#888"
         style={styles.textInput}
+        onChangeText={(text) => console.log(text)}
       />
       <Text style={styles.text}>0 C°</Text>
     </View>
@@ -53,9 +54,9 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   text: {
-    color: '#FFFF00',
+    color: '#FF0000',
     position: 'absolute',
-    fontSize: 30,
+    fontSize: 40,
     marginTop: 200,
   },
 });
