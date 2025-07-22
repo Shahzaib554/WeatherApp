@@ -41,7 +41,7 @@ function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#0A2342', // Deep blue
   },
   backgroundImage: {
     position: 'absolute',
@@ -56,26 +56,26 @@ const styles = StyleSheet.create({
   },
   textInput: {
     width: '80%',
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'rgba(30, 64, 175, 0.85)', // Lighter blue
     borderRadius: 12,
     paddingHorizontal: 15,
     paddingVertical: 10,
     fontSize: 16,
     marginBottom: 20,
-    color: '#000',
+    color: '#fff', // White text
     elevation: 3, // Android shadow
-    shadowColor: '#000', // iOS shadow
+    shadowColor: '#1E40AF', // Blue shadow
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
+    shadowOpacity: 0.25,
+    shadowRadius: 6,
   },
   temperatureText: {
     fontSize: 48,
     fontWeight: 'bold',
-    color: '#FF3B30',
-    textShadowColor: '#000',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 5,
+    color: '#FFD600', // Bright yellow
+    textShadowColor: '#1E40AF', // Blue shadow
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 8,
   },
 });
 
