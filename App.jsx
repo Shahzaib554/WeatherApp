@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
-  Image,
   StyleSheet,
   Dimensions,
   TextInput,
@@ -12,10 +11,30 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
 import BackgroundImage from './components/image';
+import axios from 'axios';
 
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get('window');
 
 function App() {
+  const [city, setCity] = useState('');
+  const [weather, setWeather] = useState(null);
+
+  useEffect(() => {
+    if (!city) return;
+    const handler = setTimeout(() => {
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=abc123def456&units=metric`)
+        .then(response => {
+          setWeather(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }, 500);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [city]);
+
   return (
     <SafeAreaView style={styles.container}>
       {/* Gradient Background */}
@@ -41,7 +60,7 @@ function App() {
             placeholder="Enter City"
             placeholderTextColor="#e0e7ef"
             style={styles.textInput}
-            onChangeText={text => console.log(text)}
+            onChangeText={text => setCity(text)}
           />
         </View>
 
