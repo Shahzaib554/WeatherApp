@@ -22,7 +22,7 @@ function App() {
   useEffect(() => {
     if (!city) return;
     const handler = setTimeout(() => {
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=abc123def456&units=metric`)
+      axios.get(`https://api.weatherapi.com/v1/current.json?key=demo&q=${city}`)
         .then(response => {
           setWeather(response.data);
         })
