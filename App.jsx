@@ -10,7 +10,8 @@ import {
   Platform,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Feather from 'react-native-vector-icons/Feather'
+import Feather from 'react-native-vector-icons/Feather';
+import BackgroundImage from './components/image';
 
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get('window');
 
@@ -25,13 +26,7 @@ function App() {
         end={{ x: 1, y: 1 }}
       />
 
-      {/* Background Image */}
-      <Image
-        source={require('./images/weather.png')}
-        style={styles.backgroundImage}
-        resizeMode="cover"
-        blurRadius={2}
-      />
+      <BackgroundImage />
 
       {/* Overlay content */}
       <View style={styles.overlay}>
@@ -46,7 +41,7 @@ function App() {
             placeholder="Enter City"
             placeholderTextColor="#e0e7ef"
             style={styles.textInput}
-            onChangeText={(text) => console.log(text)}
+            onChangeText={text => console.log(text)}
           />
         </View>
 
@@ -64,12 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#0A2342',
   },
-  backgroundImage: {
-    position: 'absolute',
-    width: deviceWidth,
-    height: deviceHeight,
-    opacity: 0.25,
-  },
+
   overlay: {
     flex: 1,
     alignItems: 'center',
@@ -115,7 +105,8 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 10,
     textAlign: 'center',
-    fontFamily: Platform.OS === 'ios' ? 'AvenirNext-Bold' : 'sans-serif-condensed',
+    fontFamily:
+      Platform.OS === 'ios' ? 'AvenirNext-Bold' : 'sans-serif-condensed',
   },
 });
 
